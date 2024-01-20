@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Promo OfferUS</title>
+  <title>Promo Offer</title>
 </head>
 <body>
 
-  <h1>Welcome to our Promo US Offer!</h1>
+  <h1>Welcome to our Promo Offer!</h1>
 
   <script>
     // Fetching visitor's country information using ipinfo.io
@@ -20,17 +20,13 @@
       })
       .then(data => {
         // Check if the country code is 'BD' (Bangladesh)
-        if (data && data.country === 'BD') {
+        if (data && data.country === 'IN') {
           // If the visitor is from Bangladesh, do nothing (offer applicable)
           console.log('Visitor is from Bangladesh. Offer is applicable.');
         } else {
-          // If the visitor is not from Bangladesh, redirect to abcd.com using different methods
+          // If the visitor is not from Bangladesh, redirect to abcd.com
           console.log('Visitor is not from Bangladesh. Redirecting...');
-
-          // Choose one of the following redirection methods:
-           window.location.href = 'https://www.youtube.com/watch?v=DeAVsGMVZCQ';
-           window.location.replace(https://www.youtube.com/watch?v=DeAVsGMVZCQ');
-           window.location.assign('https://www.youtube.com/watch?v=DeAVsGMVZCQm');
+          window.location.href = 'https://google.com';
         }
       })
       .catch(error => {
