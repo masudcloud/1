@@ -19,8 +19,8 @@
         return response.json();
       })
       .then(data => {
-        // Check if the country code is 'US' (Bangladesh)
-        if (data && data.country === 'US') {
+        // Check if the country code is 'BD' (Bangladesh)
+        if (data && data.country === 'BD') {
           // If the visitor is from Bangladesh, do nothing (offer applicable)
           console.log('Visitor is from Bangladesh. Offer is applicable.');
         } else {
