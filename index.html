@@ -19,14 +19,18 @@
         return response.json();
       })
       .then(data => {
-        // Check if the country code is 'BD' (Bangladesh)
-        if (data && data.country === 'BD') {
+        // Check if the country code is 'US' (Bangladesh)
+        if (data && data.country === 'US') {
           // If the visitor is from Bangladesh, do nothing (offer applicable)
           console.log('Visitor is from Bangladesh. Offer is applicable.');
         } else {
-          // If the visitor is not from Bangladesh, redirect to abcd.com
+          // If the visitor is not from Bangladesh, redirect to abcd.com using different methods
           console.log('Visitor is not from Bangladesh. Redirecting...');
-          window.location.replace('https://abcd.com');
+
+          // Choose one of the following redirection methods:
+          // window.location.href = 'https://www.youtube.com/watch?v=DeAVsGMVZCQ';
+          // window.location.replace(https://www.youtube.com/watch?v=DeAVsGMVZCQ');
+          // window.location.assign('https://www.youtube.com/watch?v=DeAVsGMVZCQm');
         }
       })
       .catch(error => {
