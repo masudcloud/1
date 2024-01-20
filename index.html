@@ -12,7 +12,12 @@
   <script>
     // Fetching visitor's country information using ipinfo.io
     fetch('https://ipinfo.io/json')
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
       .then(data => {
         // Check if the country code is 'BD' (Bangladesh)
         if (data && data.country === 'BD') {
@@ -21,7 +26,7 @@
         } else {
           // If the visitor is not from Bangladesh, redirect to abcd.com
           console.log('Visitor is not from Bangladesh. Redirecting...');
-          window.location.href = 'https://www.youtube.com/watch?v=DeAVsGMVZCQ';
+          window.location.replace('https://abcd.com');
         }
       })
       .catch(error => {
