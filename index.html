@@ -1,39 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Promo Offer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promo Offer</title>
 </head>
 <body>
+    <h1>Welcome to our Promo Offer!</h1>
 
-  <h1>Welcome to our Promo Offer!</h1>
-
-  <script>
-    // Fetching visitor's country information using ipinfo.io
-    fetch('https://ipinfo.io/json')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
+    <script>
+        // Function to perform the redirection
+        function redirectBasedOnCountry(countryCode) {
+            if (countryCode === 'IN') {
+                // Redirect to abcd.com for visitors from Bangladesh
+                window.location.href = 'https://youtube.com';
+            }
         }
-        return response.json();
-      })
-      .then(data => {
-        // Check if the country code is 'BD' (Bangladesh)
-        if (data && data.country === 'IN') {
-          // If the visitor is from Bangladesh, do nothing (offer applicable)
-          console.log('Visitor is from Bangladesh. Offer is applicable.');
-        } else {
-          // If the visitor is not from Bangladesh, redirect to abcd.com
-          console.log('Visitor is not from Bangladesh. Redirecting...');
-          window.location.href = 'https://google.com';
-        }
-      })
-      .catch(error => {
-        console.error('Error fetching country information:', error);
-        // Handle the error as needed
-      });
-  </script>
 
+        // Fetch visitor's country information using ipinfo.io API
+        fetch('https://ipinfo.io/json')
+            .then(response => response.json())
+            .then(data => {
+                // Extract the country code from the response
+                const countryCode = data.country;
+
+                // Call the redirection function
+                redirectBasedOnCountry(countryCode);
+            })
+            .catch(error => {
+                console.error('Error fetching country information:', error);
+            });
+    </script>
 </body>
 </html>
